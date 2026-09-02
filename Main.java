@@ -1,13 +1,15 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-void main() {
-    //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-    // to see how IntelliJ IDEA suggests fixing it.
-    IO.println(String.format("Hello and welcome!"));
-
-    for (int i = 1; i <= 5; i++) {
-        //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-        // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        IO.println("i = " + i);
-    }
+public static void main(String[] args) {
+    //Crear un archivo llamado main.py que contenga los siguientes
+    //elementos:
+    //1. Lista de libros (mínimo 5 libros)
+    //2. Función mostrar libros
+    //3. Función agregar libro
+    //4. Función buscar libro
+    //5. Función eliminar libro
+    //6. Función main donde genere y muestre lo siguiente
+    //===== BIBLIOTECA INTELIGENTE =====
+    //1. Mostrar libros
+    //2. Agregar libro
+    //3. Buscar libro
+    //4. Eliminar libro
 }
