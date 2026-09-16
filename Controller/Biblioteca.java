@@ -28,6 +28,7 @@ public class Biblioteca {
 
             int idAux = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Id del cliente: "));
             Cliente clienteEncontrado = null;
+            //Busqueda lineal sencilla
             for (Cliente cliente : clientes) {
                 if (cliente.getId() == idAux) {
                     clienteEncontrado = cliente;
@@ -46,12 +47,9 @@ public class Biblioteca {
 
             int isbnAux = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Isbn del libro: "));
             Libro libroEncontrado = null;
-            for (Libro libro : libros) {
-                if (libro.getIsbn() == isbnAux) {
-                    libroEncontrado = libro;
-                    break;
-                }
-            }
+            //Busqueda binaria reutilizando codigo
+            libroEncontrado = busquedaIsbn(libros,isbnAux);
+
             if (libroEncontrado == null) {
                 JOptionPane.showMessageDialog(null, "No se encontro el libro");
                 return;
@@ -61,7 +59,7 @@ public class Biblioteca {
                 JOptionPane.showMessageDialog(null, "Este libro ya esta alquilado");
                 return;
             }
-
+            // da 15 dias para entregar el libro
             libroEncontrado.setAlquilado(true);
             libroEncontrado.setFechaDevolucion(LocalDate.now().plusDays(15));
             JOptionPane.showMessageDialog(null, "Libro alquilado correctamente. Fecha de devolucion: " + libroEncontrado.getFechaDevolucion());
@@ -80,12 +78,9 @@ public class Biblioteca {
 
             int isbnAux = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Isbn del libro a devolver: "));
             Libro libroEncontrado = null;
-            for (Libro libro : libros) {
-                if (libro.getIsbn() == isbnAux) {
-                    libroEncontrado = libro;
-                    break;
-                }
-            }
+            //Busqueda binaria reutilizando codigo
+            libroEncontrado = busquedaIsbn(libros,isbnAux);
+
             if (libroEncontrado == null) {
                 JOptionPane.showMessageDialog(null, "No se encontro el libro");
                 return;
@@ -111,13 +106,11 @@ public class Biblioteca {
         }
     }
 
+    //metodos ordenamiento burbuja y busqueda binaria para reutilizar codigo
     public static void organizarIsbn(ArrayList<Libro> libros) {
         try {
-            if (libros.isEmpty()) {
-                JOptionPane.showMessageDialog(null, "No hay libros por el momento");
-                return;
-            }
 
+            //usamos ordenamiento de burbuja
             for (int i = 0; i < libros.size() - 1; i++) {
                 for (int j = 0; j < libros.size() - 1 - i; j++) {
                     if (libros.get(j).getIsbn() > libros.get(j + 1).getIsbn()) {
@@ -127,12 +120,32 @@ public class Biblioteca {
                     }
                 }
             }
-
-            JOptionPane.showMessageDialog(null, "Libros organizados por Isbn correctamente");
-            LibrosMetodos.mostrarLibros(libros);
-
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Error");
         }
+    }
+    public static Libro busquedaIsbn(ArrayList<Libro> libros,int isbn) {
+        int inicio = 0;
+        int fin = libros.size() - 1;
+
+        if (libros.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "No hay libros por el momento");
+            return null;
+        }
+        //organizamos la lista antes de usar busqueda binaria
+        organizarIsbn(libros);
+
+        //busqueda binaria
+        while (inicio <= fin) {
+            int medio = (inicio + fin) / 2;
+            if(libros.get(medio).getIsbn() == isbn) {
+                return libros.get(medio);
+            } else if (isbn < libros.get(medio).getIsbn() ) {
+                fin = (medio - 1);
+            } else if (isbn > libros.get(medio).getIsbn()) {
+                inicio = (medio + 1);
+            }
+        }
+        return null;
     }
 }

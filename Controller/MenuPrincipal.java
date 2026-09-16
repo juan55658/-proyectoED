@@ -10,7 +10,7 @@ public class MenuPrincipal {
     public static void menuPrincipal(ArrayList<Cliente> clientes, ArrayList<Libro> libros) {
         Boolean condicion = true;
         while (condicion) {
-            int opcion = Integer.parseInt(JOptionPane.showInputDialog("--- Menu --- \n1.Personas \n2.Libros \n3. Opciones biblioteca(alquilar,devolver,organizar por isbn) \n4.Salir \nEliga una opcion: "));
+            int opcion = Integer.parseInt(JOptionPane.showInputDialog("--- Menu --- \n1.Personas \n2.Libros \n3. Opciones biblioteca(alquilar,devolver) \n4.Salir \nEliga una opcion: "));
             switch (opcion) {
                 case 1:
                     MenuCliente.menuCliente(clientes);

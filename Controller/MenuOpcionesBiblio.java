@@ -10,7 +10,7 @@ public class MenuOpcionesBiblio {
     public static void MenuOpcionesBiblioteca(ArrayList<Cliente> clientes, ArrayList<Libro> libros) {
         Boolean condicion = true;
         while (condicion) {
-            int opcion = Integer.parseInt(JOptionPane.showInputDialog("--- Menu opciones biblioteca --- \n1.alquilar \n2.devolver \n3.organizar por isbn \n4. volver \nEliga una opcion: "));
+            int opcion = Integer.parseInt(JOptionPane.showInputDialog("--- Menu opciones biblioteca --- \n1.alquilar \n2.devolver \n3. volver \nEliga una opcion: "));
             switch (opcion) {
                 case 1:
                     Biblioteca.alquilar(clientes, libros);
@@ -19,9 +19,6 @@ public class MenuOpcionesBiblio {
                     Biblioteca.devolver(libros);
                     break;
                 case 3:
-                    Biblioteca.organizarIsbn(libros);
-                    break;
-                case 4:
                     condicion = false;
                     break;
                 default:

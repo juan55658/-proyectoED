@@ -43,6 +43,7 @@ public class ClientesMetodos {
             }
             // mostrar los clientes para escoger el ID
             mostrarClientes(clientes);
+            //busqueda lineal
             int idAux = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Id de la persona que desea eliminar: "));
             for(Cliente cliente : clientes) {
                 if (cliente.getId() == idAux) {
@@ -67,6 +68,7 @@ public class ClientesMetodos {
             }
             // mostrar los clientes para escoger el ID
             mostrarClientes(clientes);
+            //busqueda lineal
             int idAux = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Id de la persona que desea editar: "));
             for(Cliente cliente : clientes) {
                 if (cliente.getId() == idAux) {

@@ -42,6 +42,7 @@ public class LibrosMetodos {
             }
             // mostrar los libros para escoger el ID
             mostrarLibros(libros);
+            //busqueda lineal
             int isbnAux = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Isbn de el libro que desea eliminar: "));
             for(Libro libro : libros) {
                 if (libro.getIsbn() == isbnAux) {
@@ -66,6 +67,7 @@ public class LibrosMetodos {
             }
             // mostrar los clientes para escoger el ID
             mostrarLibros(libros);
+            //busqueda lineal
             int isbnAux = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Isbn de el libro que desea editar: "));
             for(Libro libro : libros) {
                 if (libro.getIsbn() == isbnAux) {
