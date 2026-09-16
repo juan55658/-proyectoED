@@ -1,6 +1,6 @@
 package Model;
 
-public abstract class Persona {
+public class Persona {
     protected String nombre, documento, telefono, email;
     protected int Id, edad;
 
@@ -8,8 +8,6 @@ public abstract class Persona {
         setId(Id + 1);
     }
 
-    public abstract void MostrarInformacion();
-    public abstract void EditarInformacion();
 
     public int getId() {return Id;}
     public String getNombre() {return nombre;}

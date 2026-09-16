@@ -2,11 +2,10 @@ package Model;
 
 import javax.swing.*;
 
-public class Cliente extends Persona {
+public class Cliente extends Persona implements crearEditar {
     private boolean esEstudiante;
 
-    public Cliente(int id,String nombre, String documento,
-                   int edad, String telefono, String email,Boolean esEstudiante) {
+    public Cliente(int id) {
         super(id);
         setNombre(JOptionPane.showInputDialog("Ingrese el nombre de la persona: "));
         setDocumento(JOptionPane.showInputDialog("Ingrese el numero del documento: "));
@@ -16,11 +15,17 @@ public class Cliente extends Persona {
         setEsEstudiante(JOptionPane.showInputDialog("Es estudiante? (si/no): "));
     }
 
-    public void MostrarInformacion() {
-        JOptionPane.showMessageDialog(null, "Id: " + getId() + "\nNombre: " + getNombre() + "\nDocuemnto: " + getDocumento() + "\nEdad: " + getEdad() + "\nTelefono: " + getTelefono() + "\nEmail: " + getEmail() + "Es estudiante?: " + getEsEstudiante());
+    public String MostrarInformacion() {
+        String texto = "Id: " + getId() + "\nNombre: " + getNombre() + "\nDocumento: " + getDocumento() + "\nEdad: " + getEdad() + "\nTelefono: " + getTelefono() + "\nEmail: " + getEmail() + "\nEs estudiante?: " + getEsEstudiante();
+        return texto;
     }
     public void EditarInformacion() {
-
+        setNombre(JOptionPane.showInputDialog("Ingrese el nuevo nombre de la persona: "));
+        setDocumento(JOptionPane.showInputDialog("Ingrese el nuevo numero del documento: "));
+        setEdad(Integer.parseInt(JOptionPane.showInputDialog("Ingrese la nueva edad: ")));
+        setTelefono(JOptionPane.showInputDialog("Ingrese el nuevo numero de telefono: "));
+        setEmail(JOptionPane.showInputDialog("Ingrese el nuevo correo: "));
+        setEsEstudiante(JOptionPane.showInputDialog("Es estudiante? (si/no): "));
     }
 
     public String getEsEstudiante() {
