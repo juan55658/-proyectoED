@@ -26,6 +26,7 @@ public class MenuCliente {
                      break;
                  case 5:
                      condicion = false;
+                     break;
                  default:
                      JOptionPane.showMessageDialog(null, "Opción incorrecta.");
              }

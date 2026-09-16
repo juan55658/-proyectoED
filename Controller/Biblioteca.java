@@ -71,6 +71,8 @@ public class Biblioteca {
 
     public static void devolver(ArrayList<Libro> libros) {
         try {
+
+            //verificar si esta vacio
             if (libros.isEmpty()) {
                 JOptionPane.showMessageDialog(null, "No hay libros por el momento");
                 return;

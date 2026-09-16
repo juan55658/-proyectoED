@@ -10,7 +10,7 @@ public class MenuPrincipal {
     public static void menuPrincipal(ArrayList<Cliente> clientes, ArrayList<Libro> libros) {
         Boolean condicion = true;
         while (condicion) {
-            int opcion = Integer.parseInt(JOptionPane.showInputDialog("--- Menu --- \n1.Personas \n2.Libros \n3. Opciones biblioteca(alquilar,devolver) \n4.Salir \nEliga una opcion: "));
+            int opcion = Integer.parseInt(JOptionPane.showInputDialog("--- MENU PRINCIPAL --- \n1.Personas \n2.Libros \n3. Opciones biblioteca(alquilar,devolver) \n4.Salir \nEliga una opcion: "));
             switch (opcion) {
                 case 1:
                     MenuCliente.menuCliente(clientes);
@@ -19,7 +19,7 @@ public class MenuPrincipal {
                     MenuLibros.menuLibros(libros);
                     break;
                 case 3:
-                    JOptionPane.showConfirmDialog(null,"Tenga en cuenta que para acceder a las funciones de la biblioteca,necesita haber creado libros y clientes.");
+                    JOptionPane.showMessageDialog(null,"Tenga en cuenta que para acceder a las funciones de la biblioteca,necesita haber creado libros y clientes.");
                     MenuOpcionesBiblio.MenuOpcionesBiblioteca(clientes,libros);
                     break;
                 case 4:
