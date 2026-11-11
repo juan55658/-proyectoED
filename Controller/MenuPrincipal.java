@@ -1,13 +1,14 @@
 package Controller;
 
+import Estructuras.ArbolLibros;
+import Estructuras.ListaEnlazada;
+import Estructuras.Pila;
 import Model.Cliente;
-import Model.Libro;
 
 import javax.swing.*;
-import java.util.ArrayList;
 
 public class MenuPrincipal {
-    public static void menuPrincipal(ArrayList<Cliente> clientes, ArrayList<Libro> libros) {
+    public static void menuPrincipal(ListaEnlazada<Cliente> clientes, ArbolLibros libros, Pila<String> historial) {
         Boolean condicion = true;
         while (condicion) {
             int opcion = Integer.parseInt(JOptionPane.showInputDialog("--- MENU PRINCIPAL --- \n1.Personas \n2.Libros \n3. Opciones biblioteca(alquilar,devolver) \n4.Salir \nEliga una opcion: "));
@@ -20,7 +21,7 @@ public class MenuPrincipal {
                     break;
                 case 3:
                     JOptionPane.showMessageDialog(null,"Tenga en cuenta que para acceder a las funciones de la biblioteca,necesita haber creado libros y clientes.");
-                    MenuOpcionesBiblio.MenuOpcionesBiblioteca(clientes,libros);
+                    MenuOpcionesBiblio.MenuOpcionesBiblioteca(clientes, libros, historial);
                     break;
                 case 4:
                     JOptionPane.showMessageDialog(null, "Vuelva pronto!");
