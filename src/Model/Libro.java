@@ -5,7 +5,7 @@ import Estructuras.Cola;
 import javax.swing.*;
 import java.time.LocalDate;
 
-public class Libro implements crearEditar {
+public class Libro implements crearEditarV1 {
     private String titulo, autor;
     private int isbn;
     private boolean alquilado;

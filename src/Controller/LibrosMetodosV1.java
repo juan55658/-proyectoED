@@ -5,7 +5,7 @@ import Model.Libro;
 
 import javax.swing.*;
 
-public class LibrosMetodos {
+public class LibrosMetodosV1 {
     public static void mostrarLibros(ArbolLibros libros) {
         try {
             if (libros.estaVacio()) {

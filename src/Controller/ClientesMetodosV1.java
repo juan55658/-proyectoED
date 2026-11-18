@@ -6,7 +6,7 @@ import Model.Cliente;
 
 import javax.swing.*;
 
-public class ClientesMetodos {
+public class ClientesMetodosV1 {
     // contador para que los ids no se repitan aunque se eliminen clientes
     private static int contadorId = 0;
 

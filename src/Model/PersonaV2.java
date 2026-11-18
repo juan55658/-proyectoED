@@ -1,10 +1,10 @@
 package Model;
 
-public class Persona {
+public class PersonaV2 {
     protected String nombre, documento, telefono, email;
     protected int Id, edad;
 
-    public Persona(int Id) {
+    public PersonaV2(int Id) {
         setId(Id + 1);
     }
 

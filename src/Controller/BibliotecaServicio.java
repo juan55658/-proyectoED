@@ -181,9 +181,9 @@ public class BibliotecaServicio {
         libro.setAlquiladoA(null);
 
         // el libro pasa al primero de la fila (si el que sigue ya no es estudiante se salta)
-        Cliente siguiente = FilaEspera.atenderSiguiente(libro);
+        Cliente siguiente = FilaEsperaV2.atenderSiguiente(libro);
         while (siguiente != null && !siguiente.isEstudiante()) {
-            siguiente = FilaEspera.atenderSiguiente(libro);
+            siguiente = FilaEsperaV2.atenderSiguiente(libro);
         }
         if (siguiente != null) {
             prestar(libro, siguiente);

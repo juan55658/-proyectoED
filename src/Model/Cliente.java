@@ -2,7 +2,7 @@ package Model;
 
 import javax.swing.*;
 
-public class Cliente extends Persona implements crearEditar {
+public class Cliente extends PersonaV2 implements crearEditarV1 {
     private boolean esEstudiante;
 
     public Cliente(int id) {

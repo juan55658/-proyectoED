@@ -8,7 +8,7 @@ import Model.Libro;
 import javax.swing.*;
 
 // maneja la fila de espera de un libro (cada libro tiene su propia cola)
-public class FilaEspera {
+public class FilaEsperaV2 {
 
     public static void agregar(Cliente cliente, Libro libro) {
         Cola<Cliente> fila = libro.getFilaEspera();

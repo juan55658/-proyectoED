@@ -1,6 +1,6 @@
 package Model;
 
-public interface crearEditar {
+public interface crearEditarV1 {
     public String MostrarInformacion();
     public void EditarInformacion();
 }

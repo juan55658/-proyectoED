@@ -9,19 +9,19 @@ import Model.Libro;
 import javax.swing.*;
 import java.time.LocalDate;
 
-public class Biblioteca {
+public class BibliotecaV1 {
     ListaEnlazada<Cliente> clientes;
     ArbolLibros libros;
     // pila con las devoluciones, la ultima devolucion queda arriba
     Pila<String> historial;
 
-    public Biblioteca() {
+    public BibliotecaV1() {
         clientes = new ListaEnlazada<>();
         libros = new ArbolLibros();
         historial = new Pila<>();
 
         JOptionPane.showMessageDialog(null, "Bienvenido a la biblioteca c: ");
-        MenuPrincipal.menuPrincipal(clientes, libros, historial);
+        MenuPrincipalV1.menuPrincipal(clientes, libros, historial);
     }
 
     public static void alquilar(ListaEnlazada<Cliente> clientes, ArbolLibros libros) {
@@ -32,7 +32,7 @@ public class Biblioteca {
             }
 
             int idAux = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el Id del cliente: "));
-            Cliente clienteEncontrado = ClientesMetodos.buscarCliente(clientes, idAux);
+            Cliente clienteEncontrado = ClientesMetodosV1.buscarCliente(clientes, idAux);
             if (clienteEncontrado == null) {
                 JOptionPane.showMessageDialog(null, "No se encontro el cliente");
                 return;
@@ -60,7 +60,7 @@ public class Biblioteca {
                         "Este libro ya esta alquilado. Desea unirse a la fila de espera?",
                         "Fila de espera", JOptionPane.YES_NO_OPTION);
                 if (respuesta == JOptionPane.YES_OPTION) {
-                    FilaEspera.agregar(clienteEncontrado, libroEncontrado);
+                    FilaEsperaV2.agregar(clienteEncontrado, libroEncontrado);
                 }
                 return;
             }
@@ -107,7 +107,7 @@ public class Biblioteca {
             libroEncontrado.setAlquiladoA(null);
 
             // si hay alguien esperando, el libro pasa al primero de la fila
-            Cliente siguiente = FilaEspera.atenderSiguiente(libroEncontrado);
+            Cliente siguiente = FilaEsperaV2.atenderSiguiente(libroEncontrado);
             if (siguiente != null) {
                 prestar(libroEncontrado, siguiente);
                 JOptionPane.showMessageDialog(null, "El libro paso a " + siguiente.getNombre() + " que era el primero en la fila. Fecha de devolucion: " + libroEncontrado.getFechaDevolucion());
